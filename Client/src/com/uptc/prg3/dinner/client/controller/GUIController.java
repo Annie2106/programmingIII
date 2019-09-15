@@ -1,6 +1,6 @@
-package com.uptc.prg3.supper.client.controller;
+package com.uptc.prg3.dinner.client.controller;
 
-import com.uptc.prg3.supper.client.view.MainFrame;
+import com.uptc.prg3.dinner.client.view.MainFrame;
 
 /**
  * Controller for the main frame of the client.

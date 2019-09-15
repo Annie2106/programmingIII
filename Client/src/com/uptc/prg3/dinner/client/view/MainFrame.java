@@ -1,4 +1,4 @@
-package com.uptc.prg3.supper.client.view;
+package com.uptc.prg3.dinner.client.view;
 
 import com.sun.java.swing.plaf.motif.MotifProgressBarUI;
 import com.sun.java.swing.plaf.windows.WindowsProgressBarUI;

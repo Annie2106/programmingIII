@@ -1,6 +1,6 @@
-package com.uptc.prg3.supper.client.controller;
+package com.uptc.prg3.dinner.client.controller;
 
-import com.uptc.prg3.supper.client.model.Philosopher;
+import com.uptc.prg3.dinner.client.model.Philosopher;
 
 import java.awt.event.ActionListener;
 import java.io.DataInputStream;
@@ -50,28 +50,14 @@ public class ClientController {
      */
     void eat() {
         boolean is = false;
-        try {
-            is = mDataInputStream.readBoolean();
-            while (mDataInputStream.readBoolean()) {
-                mPhilosopher.setThinking(false);
-                if (is = true) {
-                    mPhilosopher.setEating(true);
-                } else {
-                    mPhilosopher.setWaiting(false);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        // TODO:
     }
 
     /**
      * Makes this philosopher stop eating.
      */
-    public void stop() {
-        mPhilosopher.setThinking(true);
-        mPhilosopher.setEating(false);
-        mPhilosopher.setWaiting(false);
+    void stop() {
+        // TODO:
     }
 
     /**

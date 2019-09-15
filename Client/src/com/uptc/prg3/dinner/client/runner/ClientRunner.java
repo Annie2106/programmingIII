@@ -1,6 +1,6 @@
-package com.uptc.prg3.supper.client.runner;
+package com.uptc.prg3.dinner.client.runner;
 
-import com.uptc.prg3.supper.client.controller.ClientController;
+import com.uptc.prg3.dinner.client.controller.ClientController;
 
 /**
  * Main runner for the client.
