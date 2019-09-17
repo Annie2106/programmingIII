@@ -39,7 +39,7 @@ class GUIController {
      *
      * @param show If the bar should be shown.
      */
-    void showIndefiniteProgressBar(boolean show) {
+    synchronized void showIndefiniteProgressBar(boolean show) {
         this.mFrame.setIndefiniteProgressBar(show);
     }
 

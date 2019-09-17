@@ -1,11 +1,11 @@
 package com.uptc.prg3.dinner.client.controller;
 
+import com.uptc.prg3.dinner.client.constants.Values;
 import com.uptc.prg3.dinner.client.model.Philosopher;
+import com.uptc.prg3.dinner.client.persistence.JsonManager;
 
 import java.awt.event.ActionListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -14,11 +14,7 @@ import java.net.Socket;
 public class ClientController {
     private static ClientController mClientController;
 
-    private static final int PORT = 1234;
-    private static final String HOST = "localhost";
-
     private GUIController mGui;
-    private Socket mSocket;
     private DataInputStream mDataInputStream;
     private DataOutputStream mDataOutputStream;
     private Philosopher mPhilosopher;
@@ -70,11 +66,11 @@ public class ClientController {
         new Thread(() -> {
             mGui.showIndefiniteProgressBar(true);
             try {
-                mSocket = new Socket(HOST, PORT);
-                mDataInputStream = new DataInputStream(mSocket.getInputStream());
-                mDataOutputStream = new DataOutputStream(mSocket.getOutputStream());
+                Socket socket = new Socket("localhost", 42069);
+                ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
+                JsonManager manager = new JsonManager(output);
+                output.writeObject(manager.toJsonValue(Values.CONNECTION_TYPE, Values.CLIENT));
                 // For the differentiation on the server side.
-                mDataOutputStream.writeUTF("client");
                 mGui.showMessage("Connected to the server!");
             } catch (IOException e) {
                 e.printStackTrace();

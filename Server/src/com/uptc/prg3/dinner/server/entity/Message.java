@@ -1,4 +1,4 @@
-package server.entity;
+package com.uptc.prg3.dinner.server.entity;
 
 import java.io.Serializable;
 

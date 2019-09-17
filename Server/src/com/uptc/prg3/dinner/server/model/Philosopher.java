@@ -1,9 +1,9 @@
-package com.uptc.prg3.dinner.client.model;
+package com.uptc.prg3.dinner.server.model;
 
 /**
  * Models a philosopher.
  */
-public class Philosopher extends Thread{
+public class Philosopher extends Thread {
     // The count of philosophers that are on the dinner
     private static int mCount = 0;
 
@@ -21,7 +21,7 @@ public class Philosopher extends Thread{
     /**
      * Main constructor for the class, which initialize most of the variables.
      */
-    public Philosopher() {
+    Philosopher() {
         Philosopher.mCount++;
         this.mId = Philosopher.mCount;
         this.mState = PhilosopherState.THINK;
@@ -41,11 +41,10 @@ public class Philosopher extends Thread{
      */
     @Override
     public void run() {
-        boolean eating = false;
         this.mState = PhilosopherState.THINK;
         while (Dinner.getDinnerStatus()) {
             System.out.println(mId + ": " + mState);
-            if (this.mMustEat && eating) {
+            if (this.mMustEat) {
                 if (this.mForkLeft.isAvailable() && this.mForkRight.isAvailable()) {
                     this.mState = PhilosopherState.EAT;
                 } else {
@@ -63,7 +62,7 @@ public class Philosopher extends Thread{
      *
      * @param mustEat Start or stop eating.
      */
-    public void eat(boolean mustEat) {
+    void eat(boolean mustEat) {
         this.mMustEat = mustEat;
     }
 
