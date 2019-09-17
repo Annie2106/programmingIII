@@ -76,7 +76,6 @@ public class ClientController {
                 // For the differentiation on the server side.
                 mDataOutputStream.writeUTF("client");
                 mGui.showMessage("Connected to the server!");
-
             } catch (IOException e) {
                 e.printStackTrace();
                 mGui.showMessage("The connection with the server was not successful!");

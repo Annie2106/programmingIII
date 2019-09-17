@@ -3,7 +3,7 @@ package com.uptc.prg3.dinner.client.model;
 /**
  * Models a philosopher.
  */
-public class Philosopher extends Thread {
+public class Philosopher extends Fork {
     // The count of philosophers that are on the dinner
     private static int mCount = 0;
 
